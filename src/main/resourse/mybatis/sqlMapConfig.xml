@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 全局setting配置 根据需要再加-->
+	
+	<!-- 给User定义别名(写在environments前面) -->
+	<!-- 	别名需要配置 -->
+	<typeAliases>
+		<!-- 批量扫描包别名1 -->
+		<package name="com.sm1.pojo"/>
+	</typeAliases>
+	
+	<!-- 整合中，mapper不配了，因为使用mybatis和spring的整合包进行扫描
+	所以必须遵循：mapper.xml文件和mapper.java文件同名且在同一个目录
+	 -->
+ <!-- <mappers>
+ 		
+  </mappers> -->
+
+</configuration>

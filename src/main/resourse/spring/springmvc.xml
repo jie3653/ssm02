@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+	<!-- 注解的handler可以单个配置也可以组件扫描 -->
+	<!-- 组件扫描可以扫描controller,service,..
+	 	此处指定扫描controller包下的所有
+	 -->
+	<context:component-scan base-package="com.sm1.controller"></context:component-scan>
+	
+	<!--  使用mvc:annotation-driven 代替上面的注解配置映射器和适配器
+	 	默认加载了很多参数绑定的方法比如json的转换
+	 	实际开发使用此 方法 -->
+	 <!-- 使用此方法需要在头文件中使用
+	 	http://www.springframework.org/schema/mvc 
+	 	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+
+	
+	<!-- 配置视图解析器(因为视图选择的是jsp,配置jsp的视图解析器) 
+	   解析jsp界面，默认使用jstl，所有classpath下要有jstl的包-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+   	 	<!-- 设置jsp路径的前缀和后缀 -->
+   	 	<!-- <property name="prefix" value="/WEB-INF/jsp/"/> -->
+    </bean>
+</beans>
